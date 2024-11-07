@@ -1,0 +1,7 @@
+.header {
+  @apply bg-gray-900 text-white text-center text-xl font-bold p-8;
+}
+
+.footer {
+  @apply bg-gray-900 text-white text-center text-xl font-bold p-8;
+}
