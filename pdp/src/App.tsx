@@ -4,6 +4,8 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import "home/common-styles";
 import SafeComponent from "./components/safe-component";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/router";
 
 const Header = React.lazy(() => import("home/header"));
 const Footer = React.lazy(() => import("home/footer"));
@@ -19,8 +21,8 @@ const App = () => (
         <Header />
       </SafeComponent>
     </Suspense>
-    <div className="my-10 text-3xl mx-auto max-w-6xl">
-      <p className="text-center">PDP page content</p>
+    <div className="my-10 mx-auto max-w-6xl">
+      <RouterProvider router={router} />
     </div>
     <Suspense fallback={Loader("footer")}>
       <Footer />

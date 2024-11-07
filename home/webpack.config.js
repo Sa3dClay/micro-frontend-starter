@@ -69,6 +69,7 @@ module.exports = (_, argv) => ({
         "./header": "./src/components/header.tsx",
         "./footer": "./src/components/footer.tsx",
         "./common-styles": "./src/styles/common-styles.css",
+        "./products-api": "./src/api/products.ts",
       },
       shared: {
         ...deps,
