@@ -5,12 +5,13 @@ import "./index.scss";
 import "./styles/common-styles.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import ProductsList from "./components/products-list";
 
 const App = () => (
   <>
     <Header />
-    <div className="my-10 text-3xl mx-auto max-w-6xl">
-      <p className="text-center">Home page content</p>
+    <div className="my-10 mx-auto max-w-6xl">
+      <ProductsList />
     </div>
     <Footer />
   </>
