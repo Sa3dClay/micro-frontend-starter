@@ -1,5 +1,9 @@
 .header {
   @apply bg-gray-900 text-white text-center text-xl font-bold p-8;
+
+  .header-section {
+    @apply flex justify-between;
+  }
 }
 
 .footer {
