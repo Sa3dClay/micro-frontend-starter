@@ -2,7 +2,9 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 
 import "./index.scss";
+import "remixicon/fonts/remixicon.css";
 import "home/common-styles";
+
 import SafeComponent from "./components/safe-component";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router/router";

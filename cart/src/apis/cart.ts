@@ -1,12 +1,20 @@
+import { ProductType } from "home/products-api";
 import { useEffect, useState } from "react";
-import { BehaviorSubject } from "rxjs-compat";
+import { BehaviorSubject } from "rxjs";
 
 const API_SERVER = "http://localhost:8080";
 
-export const jwt = new BehaviorSubject(null);
-export const cart = new BehaviorSubject(null);
+export interface CartItem extends ProductType {
+  quantity: number;
+}
+interface Cart {
+  cartItems: CartItem[];
+}
 
-export const getCart = () =>
+export const jwt = new BehaviorSubject<string | null>(null);
+export const cart = new BehaviorSubject<Cart | null>(null);
+
+export const getCart = (): Promise<Cart> =>
   fetch(`${API_SERVER}/cart`, {
     headers: {
       "Content-Type": "application/json",
@@ -70,7 +78,7 @@ export function useLoggedIn() {
   useEffect(() => {
     setLoggedIn(!!jwt.value);
 
-    return jwt.subscribe(() => {
+    jwt.subscribe(() => {
       setLoggedIn(!!jwt.value);
     });
   }, []);
