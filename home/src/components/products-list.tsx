@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { currency, getProducts, Product } from "../api/products";
+import { addToCart, useLoggedIn } from "cart/cart-api";
 
 const ProductsList = () => {
+  const loggedIn = useLoggedIn();
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -23,6 +25,17 @@ const ProductsList = () => {
             <div className="text-sm">
               <p>{product.description}</p>
             </div>
+            {loggedIn && (
+              <div className="text-right mt-2">
+                <button
+                  className="bg-gray-900 hover:bg-gray-600 text-white text-sm font-bold py-2 px-4 rounded"
+                  onClick={() => addToCart("" + product.id)}
+                  id={`add_to_cart_${product.id}`}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            )}
           </div>
         </div>
       ))}
