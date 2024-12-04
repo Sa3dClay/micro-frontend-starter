@@ -4,6 +4,8 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import "remixicon/fonts/remixicon.css";
 import "./styles/common-styles.css";
+import "cart/login-styles";
+
 import Header from "./components/header";
 import Footer from "./components/footer";
 import ProductsList from "./components/products-list";

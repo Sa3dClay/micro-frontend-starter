@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { login, useLoggedIn } from "../apis/cart";
 
+import "./login.scss";
+
 export default function Login() {
   const loggedIn = useLoggedIn();
   const [showLogin, setShowLogin] = useState(false);
@@ -10,31 +12,31 @@ export default function Login() {
   if (loggedIn) return null;
 
   return (
-    <>
-      <span onClick={() => setShowLogin(!showLogin)}>
+    <div className="login-container">
+      <button onClick={() => setShowLogin(!showLogin)}>
         <i
-          className="ri-fingerprint-line text-2xl cursor-pointer"
+          className="ri-fingerprint-line login-icon"
           data-testid="show-login-icon"
         ></i>
-      </span>
+      </button>
 
       {showLogin && (
-        <div className="absolute p-5 border-4 border-gray-900 bg-white rounded-xl text-black">
+        <div className="login-box">
           <input
             type="text"
             placeholder="User Name"
             value={username}
             onChange={(evt) => setUsername(evt.target.value)}
-            className="border text-sm border-gray-400 p-2 rounded-md w-full"
+            className="login-input"
           />
           <input
             type="password"
             value={password}
             onChange={(evt) => setPassword(evt.target.value)}
-            className="border text-sm border-gray-400 p-2 rounded-md w-full mt-3"
+            className="login-input"
           />
           <button
-            className="bg-green-900 text-white py-2 px-5 rounded-md text-sm mt-5"
+            className="login-submit"
             onClick={() => login(username, password)}
             data-testid="login-btn"
           >
@@ -42,6 +44,6 @@ export default function Login() {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -72,6 +72,7 @@ module.exports = (_, argv) => ({
       exposes: {
         "./cart-api": "./src/apis/cart.ts",
         "./login": "./src/components/login.tsx",
+        "./login-styles": "./src/components/login.scss",
         "./mini-cart": "./src/components/mini-cart.tsx",
       },
       shared: {

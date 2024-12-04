@@ -25,7 +25,7 @@ export default function MiniCart() {
   if (!items) return null;
 
   return (
-    <>
+    <div className="relative">
       <span
         onClick={() => setShowCart(!showCart)}
         data-testid="[show-cart]:span"
@@ -38,7 +38,7 @@ export default function MiniCart() {
       </span>
       {showCart && (
         <div
-          className="absolute p-5 border-4 border-gray-800 bg-white rounded-xl text-black"
+          className="absolute right-1/2 p-5 border-4 border-gray-800 bg-white rounded-xl text-black"
           tabIndex={0}
           ref={divRef}
           onBlur={() => setShowCart(false)}
@@ -89,6 +89,6 @@ export default function MiniCart() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
